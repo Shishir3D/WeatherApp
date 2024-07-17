@@ -1,8 +1,7 @@
 import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:weather_app/additional_info_items.dart';
+import 'package:weather_app/hourly_forecast_items.dart';
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
@@ -91,11 +90,31 @@ class WeatherScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  HourlyForcastItem(),
-                  HourlyForcastItem(),
-                  HourlyForcastItem(),
-                  HourlyForcastItem(),
-                  HourlyForcastItem(),
+                  HourlyForcastItem(
+                    time: "00:00",
+                    icon: Icons.cloud,
+                    temperature: "22° C",
+                  ),
+                  HourlyForcastItem(
+                    time: "3:00",
+                    icon: Icons.sunny,
+                    temperature: "26° C",
+                  ),
+                  HourlyForcastItem(
+                    time: "06:00",
+                    icon: Icons.cloud,
+                    temperature: "23° C",
+                  ),
+                  HourlyForcastItem(
+                    time: "09:00",
+                    icon: Icons.thunderstorm,
+                    temperature: "20° C",
+                  ),
+                  HourlyForcastItem(
+                    time: "12:00",
+                    icon: Icons.ramen_dining,
+                    temperature: "45° C",
+                  ),
                 ],
               ),
             ),
@@ -103,8 +122,10 @@ class WeatherScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const Placeholder(
-              fallbackHeight: 150,
+
+            const Text(
+              "Additional Information",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
 
             const SizedBox(
@@ -112,49 +133,26 @@ class WeatherScreen extends StatelessWidget {
             ),
 
             //additional information
-            const Placeholder(
-              fallbackHeight: 150,
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class HourlyForcastItem extends StatelessWidget {
-  const HourlyForcastItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 100,
-      height: 130,
-      child: Card(
-        elevation: 10,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              "09:00",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                AdditionalInfoItems(
+                  icon: Icons.water_drop,
+                  info: "Humidity",
+                  value: "80",
+                ),
+                AdditionalInfoItems(
+                  icon: Icons.air,
+                  info: "Wind Speed",
+                  value: "7.5",
+                ),
+                AdditionalInfoItems(
+                  icon: Icons.beach_access,
+                  info: "Pressure",
+                  value: "1000",
+                ),
+              ],
             ),
-            Icon(
-              Icons.cloud,
-              size: 32,
-            ),
-            Text(
-              "30° C",
-              style: TextStyle(
-                fontSize: 14,
-              ),
-            )
           ],
         ),
       ),
