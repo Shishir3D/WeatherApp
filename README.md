@@ -1,16 +1,8 @@
-# weather_app
+# Weather app that I created by following a tutorial
 
-A new Flutter project.
+<h2> <a href = "https://www.youtube.com/watch?v=CzRQ9mnmh44&ab_channel=RivaanRanawat" target="_blank"> The video I am following </a> </h2>
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## This is how the app looks at the moment :
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![image](https://github.com/user-attachments/assets/530772ef-11c5-4d58-95c2-53840c930a28)
