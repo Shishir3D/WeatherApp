@@ -1,10 +1,46 @@
+import 'dart:convert';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:weather_app/additional_info_items.dart';
 import 'package:weather_app/hourly_forecast_items.dart';
+import 'package:http/http.dart' as http;
+import 'package:weather_app/secreats.dart';
 
-class WeatherScreen extends StatelessWidget {
+class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
+
+  @override
+  State<WeatherScreen> createState() => _WeatherScreenState();
+}
+
+class _WeatherScreenState extends State<WeatherScreen> {
+  @override
+  void initState() {
+    super.initState();
+    getCurrentWeather();
+  }
+
+  Future getCurrentWeather() async {
+    try {
+      String cityName = "Kathmandu";
+      final result = await http.get(
+        Uri.parse(
+          'http://api.openweathermap.org/data/2.5/forecast?q=$cityName,np&APPID=$openWeatherAPIkey',
+        ),
+      );
+      // debugPrint(result.body);
+
+      final data = jsonDecode(result.body);
+      debugPrint("checkpoint1");
+      print(data['list'][0]['main']['temp']);
+
+      if (data['cod'] != "200") {
+        throw "An unexpected error occured";
+      }
+    } catch (e) {
+      throw e.toString();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
