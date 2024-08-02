@@ -16,10 +16,10 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
+  String? cityName = "Kathmandu";
+  String countryCode = "np";
   Future<Map<String, dynamic>> getCurrentWeather() async {
     try {
-      String cityName = "Kathmandu";
-      String countryCode = "np";
       final result = await http.get(
         Uri.parse(
           'http://api.openweathermap.org/data/2.5/forecast?q=$cityName,$countryCode&APPID=$openWeatherAPIkey',
@@ -154,7 +154,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       return HourlyForcastItem(
                         time: DateFormat.j().format(time).toString(),
                         icon: hourlySky == 'Rain'
-                            ? Icons.snowing
+                            ? Icons.thunderstorm
                             : hourlySky == 'Clouds'
                                 ? Icons.cloud
                                 : Icons.sunny,
@@ -198,6 +198,69 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       value: currentPressure.toString(),
                     ),
                   ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Center(
+                  child: SizedBox(
+                    child: DropdownButton<String>(
+                      value: cityName,
+                      icon: const Icon(Icons.keyboard_double_arrow_down),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          cityName = newValue;
+                        });
+                      },
+                      items: const [
+                        DropdownMenuItem(
+                          value: "Kathmandu",
+                          child: Text(
+                            "Kathmandu",
+                            style: TextStyle(
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                        DropdownMenuItem(
+                          value: "Tokha",
+                          child: Text(
+                            "Tokha",
+                            style: TextStyle(
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                        DropdownMenuItem(
+                          value: "Pokhara",
+                          child: Text(
+                            "Pokhara",
+                            style: TextStyle(
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                        DropdownMenuItem(
+                          value: "Biratnagar",
+                          child: Text(
+                            "Biratnagar",
+                            style: TextStyle(
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                        DropdownMenuItem(
+                          value: "Siddharthanagar",
+                          child: Text(
+                            "Siddharthanagar",
+                            style: TextStyle(
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
