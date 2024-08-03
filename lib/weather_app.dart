@@ -22,7 +22,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     try {
       final result = await http.get(
         Uri.parse(
-          'http://api.openweathermap.org/data/2.5/forecast?q=$cityName,$countryCode&APPID=$openWeatherAPIkey',
+          'https://api.openweathermap.org/data/2.5/forecast?q=$cityName,$countryCode&APPID=$openWeatherAPIkey',
         ),
       );
 
@@ -42,7 +42,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Weather App",
+          "Mausam",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -250,9 +250,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
                           ),
                         ),
                         DropdownMenuItem(
-                          value: "Siddharthanagar",
+                          value: "Bhairahawa",
                           child: Text(
-                            "Siddharthanagar",
+                            "Bhairahawa",
                             style: TextStyle(
                               fontSize: 22,
                             ),
