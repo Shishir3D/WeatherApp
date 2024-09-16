@@ -2,8 +2,7 @@
 
 <h2> <a href = "https://www.youtube.com/watch?v=CzRQ9mnmh44&ab_channel=RivaanRanawat" target="_blank"> The video I am following </a> </h2>
 
-
-### [Weather App 🌩️](https://shishir3d.github.io/flutterWebApps/weatherApp/)
+## Demo : [Weather App 🌩️](https://shishir3d.github.io/flutterWebApps/weatherApp/)
 > open it 👆 on a mobile (it is not built for a big screen)
 
 ### Download the apk :
